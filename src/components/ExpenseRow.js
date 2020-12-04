@@ -4,24 +4,24 @@ const ExpenseRow = (props) => {
   console.log('expenseRow props: ', props);
   const expenses = props;
   console.log('expenses: ', expenses);
-  expenses.map((expense, num) => {
-    return (
-      <tr key={num}>
-        <td>{expense.date}</td>
-        <td>{expense.desc}</td>
-        <td>${expense.amount}</td>
-        <td>{expense.place}</td>
-        <td
-          type='btn'
-          onClick={(e) => this.props.deleteRow(expense.expenseId)}
-          className='btn-danger'
-          id='deleteButton'
-        >
-          X
-        </td>
-      </tr>
-    );
-  });
+
+  return (
+    <tr>
+      <td>{props.date}</td>
+      <td>{props.desc}</td>
+      <td>${props.amount}</td>
+      <td>{props.place}</td>
+      <td
+        style={{ cursor: 'pointer' }}
+        type='btn'
+        onClick={(e) => props.deleteRow(props.expenseId)}
+        className='btn-danger'
+        id='deleteButton'
+      >
+        X
+      </td>
+    </tr>
+  );
 };
 
 export default ExpenseRow;

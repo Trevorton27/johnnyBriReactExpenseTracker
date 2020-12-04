@@ -7,7 +7,7 @@ const Table = (props) => {
     <div>
       <table className='table table-bordered table-hover'>
         <thead className='thead-dark thead-border'>
-          <tr>
+          <tr style={{ fontSize: '20px' }}>
             <th>Date Of Expense</th>
             <th>Description of Expense</th>
             <th>Amount</th>
@@ -16,14 +16,19 @@ const Table = (props) => {
           </tr>
         </thead>
         <tbody style={{ fontWeight: 'bold', fontStyle: 'italic' }}>
-          <ExpenseRow
-            expenseId={props.expenses.id}
-            date={props.expenses.date}
-            desc={props.expenses.desc}
-            amount={props.expenses.amount}
-            place={props.expenses.place}
-            deleteRow={props.deleteRow}
-          />
+          {props.expenses.map((expenseItem) => {
+            return (
+              <ExpenseRow
+                key={expenseItem.id}
+                date={expenseItem.date}
+                desc={expenseItem.desc}
+                amount={expenseItem.amount}
+                place={expenseItem.place}
+                deleteRow={props.deleteRow}
+                expenseId={expenseItem.id}
+              />
+            );
+          })}
         </tbody>
       </table>
     </div>

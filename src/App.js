@@ -36,7 +36,7 @@ class App extends React.Component {
     let place = document.getElementById('place');
 
     const expenseItem = {
-      id: Math.floor(),
+      id: Number(Math.random()),
       date: this.state.date,
       desc: this.state.desc,
       amount: this.state.amount,
